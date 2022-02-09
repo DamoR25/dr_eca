@@ -1,0 +1,28 @@
+---
+- name: execute script and get result back.
+  hosts: all 
+  vars: 
+      threshold: {{threshold_value}}
+  tasks:
+    - name: Execute the script
+      shell: sh {{sh_dir}}/eca.sh
+      failed_when: false
+      register: mypass
+    - name: Print the script result
+      debug:
+        msg: "{{ mypass.stdout }}"
+
+    - set_fact:
+        my_var: "{{ mypass.stdout | regex_search('([0-9]+)')}}"
+
+    - name: Print value
+      debug:
+        var: my_var
+        
+    - name: To ping to Slack to send message
+      slack:
+         token: {{slack_token}}
+         domain: {{slack_domain}}
+         channel: {{'slack_channel_name'}}
+         msg: "{{mypass.stdout}}"
+      when: (my_var | int) >= {{threshold}}
