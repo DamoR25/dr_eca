@@ -25,4 +25,4 @@
          domain: {{slack_domain}}
          channel: {{'slack_channel_name'}}
          msg: "{{mypass.stdout}}"
-      when: (my_var | int) >= {{threshold}}
+      when: (my_var | int) >= 80
