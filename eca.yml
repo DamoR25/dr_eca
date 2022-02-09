@@ -25,4 +25,4 @@
          domain: hooks.slack.com
          channel: '#ansible_eca'
          msg: "{{mypass.stdout}}"
-      when: (my_var | int) >= {{threshold}}
+      #when: (my_var | int) >= {{threshold}}
