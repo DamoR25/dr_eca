@@ -2,7 +2,7 @@
 - name: execute script and get result back.
   hosts: 169.38.135.245 
   vars: 
-      threshold: {{threshold_value}}
+      threshold: 80
   tasks:
     - name: Execute the script
       shell: sh /root/eca/test.sh
@@ -25,4 +25,4 @@
          domain: {{slack_domain}}
          channel: {{'slack_channel_name'}}
          msg: "{{mypass.stdout}}"
-      when: (my_var | int) >= 80
+      when: (my_var | int) >= {{threshold}}
