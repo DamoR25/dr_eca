@@ -1,6 +1,6 @@
 ---
 - name: execute script and get result back.
-  hosts: 169.38.135.245 
+  hosts: all
   vars: 
       threshold: 80
   tasks:
