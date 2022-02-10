@@ -12,6 +12,16 @@
       debug:
         msg: "{{ mypass.stdout }}"
         
+    - name: Launch a Workflow with parameters without waiting
+      tower_workflow_launch:
+        workflow_template: "dr Test new workflow"
+        extra_vars: "---
+    my: "{{ mypass.stdout }}"
+        wait: False
+      delegate_to: localhost
+      run_once: true
+      register: workflow_task_info
+        
       
     #- set_fact:
     #    my_var: "{{ mypass.stdout | regex_search('([0-9]+)')}}"
