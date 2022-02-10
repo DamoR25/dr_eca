@@ -13,7 +13,7 @@
         msg: "{{ mypass.stdout }}"
         
     - set_fact:
-      my_var: "{{ mypass.stdout | regex_search('Breached')}}"
+        my_var: "{{ mypass.stdout | regex_search('Breached')}}"
 
     - name: Print
       debug:
