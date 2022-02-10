@@ -14,7 +14,7 @@
         
     - name: Launch a Workflow with parameters without waiting
       tower_workflow_launch:
-        workflow_template: "dr Test new workflow"
+        workflow_template: "dr Test git new workflow"
         extra_vars: "---
     my: "{{ mypass.stdout }}"
         wait: False
