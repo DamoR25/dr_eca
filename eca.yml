@@ -12,12 +12,12 @@
       debug:
         msg: "{{ mypass.stdout }}"
 
-    - set_fact:
-        my_var: "{{ mypass.stdout | regex_search('([0-9]+)')}}"
+    #- set_fact:
+    #    my_var: "{{ mypass.stdout | regex_search('([0-9]+)')}}"
 
-    - name: Print value
-      debug:
-        var: my_var
+    #- name: Print value
+    # debug:
+    #   var: my_var
         
     - name: To ping to Slack to send message
       slack:
