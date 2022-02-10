@@ -12,6 +12,12 @@
       debug:
         msg: "{{ mypass.stdout }}"
         
+    - set_fact:
+      my_var: "{{ mypass.stdout | regex_search('dataDir.*')}}"
+
+    - name: Print
+      debug:
+        var: my_var
         
       
     #- set_fact:
