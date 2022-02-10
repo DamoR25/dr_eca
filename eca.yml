@@ -11,7 +11,15 @@
     - name: Print the script result
       debug:
         msg: "{{ mypass.stdout }}"
-
+        
+    - name: check word
+      shell: "{{ mypass.stdout }}" --formats | grep $item
+      with items:
+        - Threshold Breached
+      register: ogr_check
+      debug:
+        var: ogr_check.stdout_lines
+      
     #- set_fact:
     #    my_var: "{{ mypass.stdout | regex_search('([0-9]+)')}}"
 
