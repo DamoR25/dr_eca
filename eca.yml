@@ -32,5 +32,5 @@
          token: T4W1S5P34/B02MEUC40E9/Wmjqqy30hENvhsa3bqLfddcZ
          domain: hooks.slack.com
          channel: '#ansible_eca_test'
-         msg: "{{mypass.stdout}}"
+         msg: "{{my_var.stdout}}"
       #when: (my_var | int) >= {{threshold}}
