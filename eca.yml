@@ -13,7 +13,7 @@
         msg: "{{ mypass.stdout }}"
         
     - name: check word
-      shell: "{{ mypass.stdout }}" --formats | grep $item
+      shell: "{{ mypass.stdout }}" | grep $item
       with items:
         - Threshold Breached
       register: ogr_check
