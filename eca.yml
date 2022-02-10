@@ -18,6 +18,7 @@
     - name: Print
       debug:
         var: my_var
+        msg: "{{ my_var.stdout }}"
         
       
     #- set_fact:
