@@ -11,14 +11,7 @@
     - name: Print the script result
       debug:
         msg: "{{ mypass.stdout }}"
-        
-    - set_fact:
-        my_var: "{{ lookup('pipe', 'Breached') }}"
-
-    - name: Print
-      debug:
-        var: my_var
-        msg: "{{ my_var.stdout }}"
+      when: mypass.stdout | regex_search('Breached')
         
       
     #- set_fact:
