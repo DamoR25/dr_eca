@@ -15,7 +15,7 @@
         
       
     - set_fact:
-        my_var: "{{ mypass.stdout | regex_search('([0-9]+)')}}"
+        my_var: "{{ mypass.stdout | regex_search('([0-9]+[%])')}}"
 
     - name: Print value
       debug:
