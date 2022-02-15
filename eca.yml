@@ -11,7 +11,7 @@
     - name: Print the script result
       debug:
         msg: "{{ mypass.stdout }}"
-      when: mypass.stdout | regex_search('Breached')
+      #when: mypass.stdout | regex_search('Breached')
         
       
     #- set_fact:
@@ -27,5 +27,5 @@
          domain: hooks.slack.com
          channel: '#ansible_eca_test'
          msg: "{{mypass.stdout}}"
-      when: mypass.stdout | regex_search('Breached')
+      #when: mypass.stdout | regex_search('Breached')
       #when: (my_var | int) >= {{threshold}}
