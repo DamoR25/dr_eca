@@ -27,6 +27,6 @@
          domain: hooks.slack.com
          channel: '#ansible_eca_test'
          msg: "{{ mypass.stdout }}"
-      when: mypass.stdout|int > 90
+      when: mypass.stdout|int > 90%
       #when: mypass.stdout | regex_search('Breached')
       
