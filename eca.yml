@@ -11,7 +11,7 @@
     - name: Print the script result
       debug:
         msg: "{{ mypass.stdout }}"
-      when: mypass.stdout|int > 50
+      
       #when: mypass.stdout | regex_search('Breached')
     #- meta: end_play
       
