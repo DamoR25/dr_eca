@@ -10,7 +10,7 @@
       register: mypass
     - name: Print the script result
       debug:
-        msg: "{{ mypass }}"
+        msg: "{{ mypass.stdout }}"
       #when: mypass.stdout | regex_search('Breached')
     #- meta: end_play
       
@@ -29,10 +29,8 @@
          domain: hooks.slack.com
          channel: '#ansible_eca_test'
          #msg: "{{mypass.stdout}}"
-         msg: "{{mypass}}"
-      #when: mypass.stdout|int >= 50
-      when: mypass|int >= 50%
-      #when: mypass.stdout|int >= 90
+         msg: "{{mypass.stdout}}"
+      when: mypass.stdout|int >= 50
       
       #when: mypass.stdout | regex_search('Breached')
       
