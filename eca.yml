@@ -31,7 +31,7 @@
          #msg: "{{mypass.stdout}}"
          msg: "{{mypass}}"
       #when: mypass.stdout|int >= 50
-      when: mypass|int >= 50
+      when: mypass|int >= 50%
       #when: mypass.stdout|int >= 90
       
       #when: mypass.stdout | regex_search('Breached')
