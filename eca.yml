@@ -12,7 +12,7 @@
       debug:
         msg: "{{ mypass }}"
       #when: mypass.stdout | regex_search('Breached')
-    - meta: end_play
+    #- meta: end_play
       
         
       
@@ -30,7 +30,7 @@
          channel: '#ansible_eca_test'
          msg: "{{ mypass.stdout }}"
       #when: mypass.stdout.findint > 40
-      when: mypass.stdout|int > '90'
+      when: mypass.stdout >= "90"
       
       #when: mypass.stdout | regex_search('Breached')
       
