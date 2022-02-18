@@ -12,6 +12,7 @@
       debug:
         msg: "{{ mypass.stdout }}"
       #when: mypass.stdout | regex_search('Breached')
+      
         
       
     #- set_fact:
@@ -23,10 +24,13 @@
         
     - name: To ping to Slack to send message
       slack:
-         token: T4W1S5P34/B02MEUC40E9/Wmjqqy30hENvhsa3bqLfddcZ
+         token: T4W1S5P34/B02MEUC40E9/iBeMJQKNdwG67tu90pxlPXGZ
          domain: hooks.slack.com
          channel: '#ansible_eca_test'
          msg: "{{ mypass.stdout }}"
-      when: mypass.stdout|int > 90%
+      when: mypass.stdout|int > 90
+      
       #when: mypass.stdout | regex_search('Breached')
+      
+
       
