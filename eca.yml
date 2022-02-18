@@ -26,7 +26,7 @@
          token: T4W1S5P34/B02MEUC40E9/Wmjqqy30hENvhsa3bqLfddcZ
          domain: hooks.slack.com
          channel: '#ansible_eca_test'
-         msg: "{{mypass.stdout}}"
+         msg: "{{ mypass.stdout }}"
       when: mypass.stdout|int > 90
       #when: mypass.stdout | regex_search('Breached')
       
