@@ -30,7 +30,7 @@
          channel: '#ansible_eca_test'
          #msg: "{{mypass.stdout}}"
          msg: "{{mypass.stdout}}"
-      when: mypass.stdout|int >= 50
+      when: mypass.stdout|int > 50
       
       #when: mypass.stdout | regex_search('Breached')
       
