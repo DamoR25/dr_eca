@@ -2,8 +2,7 @@
   - name: test script module
     hosts: 192.168.0.102
 
-    tasks:
-    
+    tasks:  
       - name: Create a task to open 2 command prompts as SYSTEM
         community.windows.win_scheduled_task:
           name: TaskName
@@ -16,8 +15,8 @@
           triggers:
           - type: daily
             start_boundary: '2022-03-21T020:00:00'
-            username: SYSTEM
-            state: present
-            enabled: yes
+          username: SYSTEM
+          state: present
+          enabled: yes
 
 
