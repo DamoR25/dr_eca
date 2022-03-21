@@ -1,16 +1,23 @@
 ---
   - name: test script module
-
-    hosts: all
+    hosts: 192.168.0.102
 
     tasks:
+    
+      - name: Create a task to open 2 command prompts as SYSTEM
+        community.windows.win_scheduled_task:
+          name: TaskName
+          description: open command prompt
+          actions:
+          - path: cmd.exe
+            arguments: /c hostname
+          - path: cmd.exe
+            arguments: /c whoami
+          triggers:
+          - type: daily
+            start_boundary: '2022-03-21T020:00:00'
+            username: SYSTEM
+            state: present
+            enabled: yes
 
-      - name: run simple script
 
-        script: C:\Users\002E5J744\Desktop\Tool\Py Codes\File1.bat
-        
-        register: mypass
-        
-      - name: Print the script result
-        debug:
-          msg: "{{ mypass.stdout }}"
