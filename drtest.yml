@@ -12,7 +12,7 @@
       register: mypass
     - name: Print the script result
       debug:
-        msg: "{{ mypass.stdout_lines|list }}"
+        msg: "{{ mypass.stdout_lines|select("Breached")|list }}"
         #msg: "{{ mypass.stdout }}"
       #when: mypass.stdout | regex_search('Breached')
         
