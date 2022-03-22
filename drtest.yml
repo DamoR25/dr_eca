@@ -12,7 +12,8 @@
       register: mypass
     - name: Print the script result
       debug:
-        msg: "{{ mypass.stdout }}"
+        msg: "{{ mypass.stdout_lines|list }}"
+        #msg: "{{ mypass.stdout }}"
       #when: mypass.stdout | regex_search('Breached')
         
       
@@ -28,6 +29,6 @@
          token: T4W1S5P34/B02MEUC40E9/iBeMJQKNdwG67tu90pxlPXGZ
          domain: hooks.slack.com
          channel: '#ansible_eca_test'
-         msg: "{{mypass.stdout}}"
-      when: mypass.stdout | regex_search('Breached')
+         msg: "{{mypass.stdout_lines }}"
+      when: mypass.stdout_lines | regex_search('Breached')
       #when: mypass.stdout|int >= {{ threshold }}
